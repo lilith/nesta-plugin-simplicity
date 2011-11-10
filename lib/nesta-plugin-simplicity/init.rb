@@ -47,6 +47,18 @@ module Nesta
     end
     
   end
+  
+  class Page
+
+     def libs
+       strings = metadata('libs')
+       strings.nil? ? [] : strings.split(',').map { |string| string.strip }
+     end
+     
+     def lib(lib)
+        (libs.include?(lib) or libs.include?(lib.to_s))
+     end
+  end
     
   
   
